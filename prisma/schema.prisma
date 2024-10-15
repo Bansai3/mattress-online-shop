@@ -1,0 +1,115 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+enum UserStatus {
+  AUTHENTICATED
+  UNAUTHENTICATED
+}
+
+enum MattressType {
+  SPRINGLESS
+  CHILDREN
+  BONELSPRINGUNIT
+  INDEPENDENTSPRINGUNIT
+  MAJORLEAGUE
+}
+
+enum Status {
+  SOLD
+  AVAILABLE
+}
+
+model mattress {
+  id               Int                @id @default(autoincrement())
+  type             MattressType
+  recommended      Boolean
+  name             String             @db.VarChar(255)
+  cost             Decimal
+  manufacture_date DateTime           @db.Date
+  owner            user?              @relation(fields: [owner_id], references: [id])
+  owner_id         Int?
+  cart_mattresses  cart_mattresses[]
+  status           Status
+  order_mattresses order_mattresses[]
+  image_link       String
+  @@unique([name])
+}
+
+model statistics {
+  id              Int               @id @default(autoincrement())
+  url             String            @unique
+  count           Int
+}
+
+model cart {
+  id              Int               @id @default(autoincrement())
+  cart_mattresses cart_mattresses[]
+  user            user              @relation(fields: [user_id], references: [id])
+  user_id         Int               @unique
+}
+
+model cart_mattresses {
+  mattress    mattress @relation(fields: [mattress_id], references: [id])
+  mattress_id Int
+  cart        cart     @relation(fields: [cart_id], references: [id])
+  cart_id     Int
+
+  @@id([mattress_id, cart_id])
+}
+
+model order {
+  id               Int                @id @default(autoincrement())
+  user             user               @relation(fields: [user_id], references: [id])
+  user_id          Int
+  order_mattresses order_mattresses[]
+  address          String
+  cost             Int
+  date             DateTime           @db.Date
+}
+
+model order_mattresses {
+  mattress    mattress @relation(fields: [mattress_id], references: [id])
+  mattress_id Int
+  order       order    @relation(fields: [order_id], references: [id])
+  order_id    Int
+
+  @@id([mattress_id, order_id])
+}
+
+model token {
+  id  Int @id @default(autoincrement())
+  value String @unique
+  user_id Int @unique
+  user            user              @relation(fields: [user_id], references: [id])
+}
+
+model user {
+  id                Int        @id @default(autoincrement())
+  fio               String?
+  email             String     @db.VarChar(255)
+  password          String     @db.VarChar(255)
+  login             String     @db.VarChar(255)
+  role              Role
+  status            UserStatus
+  bought_mattresses mattress[]
+  orders            order[]
+  token             token?
+  cart              cart?
+}

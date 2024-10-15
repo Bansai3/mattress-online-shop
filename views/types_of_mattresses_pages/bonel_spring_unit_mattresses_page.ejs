@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Online mattress store">
+    <mate name="keywords" content="HTML">
+    <meta name="author" content="Vadim Fedotov">
+    <link href="/style_sheets/body_style.css" rel="stylesheet">
+    <link href="/style_sheets/head_first_line_style.css" rel="stylesheet">
+    <link href="/style_sheets/head_second_line_style.css" rel="stylesheet">
+    <link href="/style_sheets/footer_style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <%- include('../templates/page_load_time_script.ejs') %>
+      <%- include('../templates/notifications.ejs') %>
+    <title>Интернет магазин матрасов</title>
+  </head>
+  <body>
+  <header>
+    <%- include('../templates/header_first_line.ejs') %>
+    <%- include('../templates/header_second_line.ejs') %>
+  </header>
+      <main>
+        <%- include('../templates/nav.ejs') %>
+        <script src="../js/change_button_state.js"></script>
+        <div class="gallery">
+          <figure>
+            <img src="/types_of_mattresses_images/bonnel_spring_unit/Contrast_eco.jpg" alt="Contrast_eco">
+            <figcaption>матрасс "Контраст эко"</figcaption>
+            <button class="show_info_button" onclick='get_mattress_info("Contrast_eco")'>Показать информацию</button>
+          </figure>
+          <figure>
+            <img src="/types_of_mattresses_images/bonnel_spring_unit/Contrast_light.jpg" alt="Contrast_light">
+            <figcaption>матрасс "Контраст лайт"</figcaption>
+            <button class="show_info_button" onclick='get_mattress_info("Contrast_light")'>Показать информацию</button>
+          </figure>
+          <figure>
+            <img src="/types_of_mattresses_images/bonnel_spring_unit/Contrast_optima.jpg" alt="Contrast_optima">
+            <figcaption>матрасс "Контраст оптима"</figcaption>
+            <button class="show_info_button" onclick='get_mattress_info("Contrast_optima")'>Показать информацию</button>
+          </figure>
+          <figure>
+            <img src="/types_of_mattresses_images/bonnel_spring_unit/Contrast_prestizh.jpg" alt="Contrast_prestizh">
+            <figcaption>матрасс "Контраст пристиж"</figcaption>
+            <button class="show_info_button" onclick='get_mattress_info("Contrast_prestizh")'>Показать информацию</button>
+          </figure>
+          <figure>
+            <img src="/types_of_mattresses_images/bonnel_spring_unit/Contrast_standart.jpg" alt="Contrast_standard">
+            <figcaption>матрасс "Контраст стандарт"</figcaption>
+            <button class="show_info_button" onclick='get_mattress_info("Contrast_standart")'>Показать информацию</button>
+          </figure>
+          <figure>
+            <img src="/types_of_mattresses_images/bonnel_spring_unit/Contur_alpha.jpg" alt="Contur_alpha">
+            <figcaption>матрасс "Контур альфа"</figcaption>
+            <button class="show_info_button" onclick='get_mattress_info("Contur_alpha")'>Показать информацию</button>
+          </figure>
+        </div>
+        <script src="../js/mattress_info.js"></script>
+      <div class="body_footer_line"></div>
+      </main>
+  <%- include('../templates/footer.ejs') %>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Online mattress store">
+    <mate name="keywords" content="HTML">
+        <meta name="author" content="Vadim Fedotov">
+        <link href="/style_sheets/body_style.css" rel="stylesheet">
+        <link href="/style_sheets/head_first_line_style.css" rel="stylesheet">
+        <link href="/style_sheets/head_second_line_style.css" rel="stylesheet">
+        <link href="/style_sheets/footer_style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <link href="/style_sheets/form.css" rel="stylesheet">
+        <script defer src="/js/handle_form_submit.js"></script>
+        <%- include('../templates/page_load_time_script.ejs') %>
+        <%- include('../templates/notifications.ejs') %>
+        <title>Интернет магазин матрасов</title>
+</head>
+<body>
+<header>
+    <%- include('../templates/header_first_line.ejs') %>
+</header>
+<main>
+    <%
+      function getDate(date_value) {
+        const date = new Date(date_value);
+        const year = date.getFullYear();
+        const month = ('0' + (date.getMonth() + 1)).slice(-2);
+        const day = ('0' + date.getDate()).slice(-2);
+        return String(year + '-' + month + '-' + day);
+      }
+      %>
+    </script>
+    <div class='orders_container'>
+        <% if(orders_mattresses.length == 0) { %>
+            <div class='orders_amount_header'>У вас нет заказов 😔</div>
+        <% } else { %>
+        <div class='orders_header'>🔥 Заказы 🔥</div>
+        <div class='orders_list'>
+            <% orders_mattresses.forEach(order_mattress => { %>
+                <div class="order_item">
+                    <div class='order_date_section'>
+                        <div class='date_header'>Заказ от</div>
+                        <div class='date_header_value'><%= getDate(order_mattress.order.date) %></div>
+                    </div>
+                    <div class='order_address_section'>
+                        <div class='order_address'>Адрес доставки:</div>
+                        <div class='order_address_value'><%= order_mattress.order.address %></div>
+                    </div>
+                    <div class='order_cost_section'>
+                        <div class='order_cost'>Цена:</div>
+                        <div class='order_cost_value'><%= order_mattress.order.cost %></div>
+                    </div>
+                    <div class='order_mattresses_items'>Матрассы:</div>
+                    <div class="order_mattress_list">
+                        <% order_mattress.mattresses.forEach(mattress => { %>
+                            <div class="order_mattress_item">
+                                <img src="/<%= mattress.image_link %>" alt="<%= mattress.name %>">
+                                <h3><%= mattress.name %></h3>
+                                <p>Тип: <%= mattress.type %></p>
+                                <p>Рекомендуемый: <%= mattress.recommended %></p>
+                                <p>Цена: <%= mattress.cost %></p>
+                                <p>Дата производства: <%= mattress.manufacture_date.toDateString() %></p>
+                            </div>
+                        <% }); %>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+        <% } %>
+        </div>
+    <div class="body_footer_line"></div>
+</main>
+<%- include('../templates/footer.ejs') %>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Online mattress store">
+    <mate name="keywords" content="HTML">
+    <meta name="author" content="Vadim Fedotov">
+    <link href="/style_sheets/body_style.css" rel="stylesheet">
+    <link href="/style_sheets/head_first_line_style.css" rel="stylesheet">
+    <link href="/style_sheets/head_second_line_style.css" rel="stylesheet">
+    <link href="/style_sheets/footer_style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <%- include('../templates/page_load_time_script.ejs') %>
+        <%- include('../templates/notifications.ejs') %>
+    <title>Интернет магазин матрасов</title>
+</head>
+<body>
+<header>
+    <%- include('../templates/header_first_line.ejs') %>
+    <% if(error_status) { %>
+      <div class='mattress_info_error_message'>
+          error_message
+      </div>
+    <% } else { %>
+    <div class="mattress_info">
+        <figure class='mattress_figure'>
+        <img src='../<%= image_link %>' alt=<%= mattress_name %>>
+        <div class='mattress_characteristics'>
+            <div class='mattress_ch_header_container'>
+                <div class= 'mattress_ch_header'>Характеристики матрасса</div>
+                <div class= 'mattress_ch_header_value'><%= mattress_name %></div>
+            </div>
+            <div class='mattress_characteristics_line'></div>
+            <div class='mattress_ch_unit_container'>
+                <div class='mattress_ch_unit'>ID</div>
+                <div class='mattress_ch_unit_value'> <%= mattress_id %> </div>
+            </div>
+            <div class='mattress_characteristics_line'></div>
+            <div class='mattress_ch_unit_container'>
+                <div class='mattress_ch_unit'>Тип</div>
+                <div class='mattress_ch_unit_value'> <%= type %> </div>
+            </div>
+            <div class='mattress_characteristics_line'></div>
+            <div class='mattress_ch_unit_container'>
+                <div class='mattress_ch_unit'>Рекомендуется</div>
+                <div class='mattress_ch_unit_value'> <%= recommended %> </div>
+            </div>
+            <div class='mattress_characteristics_line'></div>
+            <div class='mattress_ch_unit_container'>
+                <div class='mattress_ch_unit'>Цена матрасса</div>
+                <div class='mattress_ch_unit_value'> <%= cost %> </div>
+            </div>
+            <div class='mattress_characteristics_line'></div>
+            <div class='mattress_ch_unit_container'>
+                <div class='mattress_ch_unit'>Дата изготовления</div>
+                <div class='mattress_ch_unit_value'> <%= manufacture_date %> </div>
+            </div>
+            <div class='mattress_characteristics_line'></div>
+            <div class='mattress_ch_unit_container'>
+                <div class='mattress_ch_unit'>ID вадельца</div>
+                <div class='mattress_ch_unit_value'> <%= owner_id == null ? "NULL" : owner_id %> </div>
+            </div>
+            <div class='mattress_characteristics_line'></div>
+            <div class='mattress_ch_unit_container'>
+                <div class='mattress_ch_unit'>Статус</div>
+                <div class='mattress_ch_unit_value'> <%= mattress_status %> </div>
+            </div>
+        </div>
+            <button class="mattress_add_to_cart_button" onclick='add_mattress_into_cart()'>Добавить в корзину</button>
+            <div id="loading-icon" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i> Loading...
+            </div>
+            <script>
+              function add_mattress_into_cart() {
+                if (<%= user_id %> === -1) {
+                  alert('User is not authorized! Sign in first')
+                  window.location.href = '/registration/sign_in_page';
+                  return;
+                }
+                formData = new FormData();
+                formData.append('user_id', <%= user_id %>);
+                formData.append('mattress_name', '<%= mattress_name %>');
+                const user_id_val = '<%= user_id %>';
+                const mattress_name_val = '<%= mattress_name %>';
+                const loadingIcon = document.getElementById('loading-icon');
+                loadingIcon.style.display = 'block';
+                fetch(`/cart${user_id_val}/add_mattress_by_name${mattress_name_val}`, {
+                  method: 'POST',
+                }).then(response => {
+                  if(response.ok) {
+                  } else {
+                    response.text().then(errorMessage => {
+                      const json_obj = JSON.parse(errorMessage);
+                      alert(json_obj.message);
+                    });
+                  }
+                  loadingIcon.style.display = 'none';
+                });
+              }
+            </script>
+            <figure>
+    </div>
+    <% } %>
+</header>
+<main>
+    <div class="body_footer_line"></div>
+</main>
+<%- include('../templates/footer.ejs') %>
+</body>
+</html>

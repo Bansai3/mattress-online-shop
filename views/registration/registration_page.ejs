@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Online mattress store">
+    <mate name="keywords" content="HTML">
+    <meta name="author" content="Vadim Fedotov">
+    <link href="/style_sheets/body_style.css" rel="stylesheet">
+    <link href="/style_sheets/head_first_line_style.css" rel="stylesheet">
+    <link href="/style_sheets/head_second_line_style.css" rel="stylesheet">
+    <link href="/style_sheets/footer_style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+      <%- include('../templates/page_load_time_script.ejs') %>
+      <%- include('../templates/notifications.ejs') %>
+    <title>Интернет магазин матрасов</title>
+  </head>
+  <body>
+  <header>
+    <%- include('../templates/header_first_line.ejs') %>
+  </header>
+      <main>
+        <div class="register_form_container">
+        <form id='register_account_form' class="register_account">
+          <div class="register_title">Регистрация</div>
+          <input class="register_input" type="text" id="register_login" name="login" placeholder="Логин">
+          <input class="register_input" type="text" id="register_fio" name="fio" placeholder="ФИО">
+          <input class="register_input" type="email" id="register_email" name="email" placeholder="E-mail">
+          <input class="register_input" type="password" id="register_password" name="password" placeholder="Пароль">
+          <input class="register_input" type="password" id="register_confirm_password" name="confirm_password" placeholder="Подтверждение Пароль">
+          <button class="register_input" type="submit" id="register">Зарегистрироваться</button>
+          <div id="loading_icon_for_register" style="display: none;">
+            <i id='register_load_icon' class="fas fa-spinner fa-spin"></i>
+          </div>
+        </form>
+      </div>
+        <div class="body_footer_line"></div>
+      </main>
+  <script>
+    document.getElementById('register_account_form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const loadingIcon = document.getElementById(`loading_icon_for_register`);
+      loadingIcon.style.display = 'block';
+
+      let login_value = String(document.getElementById('register_login').value);
+      let fio_value = String(document.getElementById('register_fio').value);
+      let email_value = String(document.getElementById('register_email').value);
+      let password_value = String(document.getElementById('register_password').value);
+      let confirm_password_value = String(document.getElementById('register_confirm_password').value);
+
+      const data = {
+        login: login_value,
+        fio: fio_value,
+        email: email_value,
+        password: password_value,
+        confirm_password: confirm_password_value,
+      };
+
+      fetch(`/auth/register`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+      }).then(response => {
+        if (!response.ok) {
+          response.text().then(errorMessage => {
+            const json_obj = JSON.parse(errorMessage);
+            alert(json_obj.message);
+          });
+        }
+        loadingIcon.style.display = 'none';
+      });
+    });
+  </script>
+  <%- include('../templates/footer.ejs') %>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+<script>
+  window.addEventListener('load',
+    function() {
+      var footer = document.getElementById("load_time");
+      const pageEnd = performance.mark('pageEnd')
+      const loadTime = pageEnd.startTime
+      footer.innerText = 'Total load time: ' + loadTime + ' ms (client) ' +
+        '+ ' + <%= time %> + ' ms ' + '(server)';
+    }
+  )
+</script>

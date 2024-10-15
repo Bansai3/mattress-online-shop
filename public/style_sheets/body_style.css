@@ -1,0 +1,768 @@
+@media screen and (max-width: 992px) {
+  .main_page_content {
+    font-size: 120px;
+  }
+  .second_line_navigation_button {
+    font-size: 13px;
+  }
+
+  #register_password, #register_login, #register_fio,
+  #register_email, #register_confirm_password {
+    font-size: 13px;
+  }
+
+  #sign_in_login, #sign_in_password {
+    font-size: 13px;
+  }
+
+  #register {
+    width: 70%;
+    font-size: 15px;
+  }
+
+  #sign_in {
+    width: 50%;
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 993px) {
+  .main_page_content {
+    font-size: 180px;
+  }
+  .second_line_navigation_button {
+    font-size: 17px;
+  }
+  #register_password, #register_login, #register_fio,
+  #register_email, #register_confirm_password {
+    font-size: 17px;
+  }
+
+  #sign_in_login, #sign_in_password {
+    font-size: 17px;
+  }
+
+  #register {
+    width: 55%;
+    font-size: 20px;
+  }
+
+  #sign_in {
+    width: 50%;
+    font-size: 20px;
+  }
+}
+
+.sections{
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+
+a.second_line_navigation_button {
+  color: black;
+  text-decoration: none;
+}
+
+.second_line_navigation_button {
+  border: 1px solid #C562FF;
+  border-radius: 3px;
+  color: black;
+  padding: 5px;
+  font-family: "Times New Roman", serif;
+}
+
+.second_line_navigation_button:hover{
+  border: 1px solid #C562FF;
+  border-radius: 3px;
+  color: black;
+  padding: 5px;
+  font-family: "Times New Roman", serif;
+  background-color: #EBB4FE;
+}
+
+.main_page_content {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_page_gallery {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.mattress_info {
+  display: flex;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.mattress_figure {
+  border-color: #A100FA;
+  border-style: solid;
+  border-radius: 3px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-basis: 45%;
+  height: 100%;
+}
+
+.mattress_characteristics {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-weight: bold;
+  width: 80%;
+}
+
+.mattress_figure {
+  border-color: #A100FA;
+  border-style: solid;
+}
+
+.gallery {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 450px;
+  flex-basis: 25%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+img {
+  width: 300px;
+  height: 300px;
+}
+
+.main_page_image {
+  width: 30%;
+  height: 80%;
+}
+
+figcaption {
+  font-style: italic;
+  font-size: 17px;
+}
+
+.body_footer_line {
+  left: 0;
+  right: 0;
+  height: 1px;
+  position: absolute;
+  background-color: #CACFD2;
+}
+
+.mattress_ch_unit_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mattress_ch_header {
+  color: black;
+}
+
+.mattress_ch_header_value {
+  color: grey;
+}
+
+.mattress_ch_header_container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 23px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.mattress_ch_unit {
+  color: black;
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+.mattress_ch_unit_value {
+  color: grey;
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+
+.mattress_characteristics_line {
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #CACFD2;
+}
+
+.table {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 100px;
+}
+
+.table_frame {
+  width: 70%;
+}
+
+#grid-table {
+  margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  justify-content: center;
+  gap: 0.5px;
+}
+
+.cell {
+  display: flex;
+  border: 1px solid grey;
+  font-size: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.table_title_cell {
+  font-size: 13px;
+  background-color: #ECADFF;
+  font-weight: bold;
+  grid-column: span 8;
+  align-self: end;
+  height: 40px;
+}
+
+.title_cell {
+  font-weight: bold;
+  background-color: #CACFD2;
+}
+
+.active_mattresses_types {
+  background-color: #D997FF;
+}
+
+.sign_form_container {
+  display: flex;
+  margin-top: 50px;
+  padding-bottom: 250px;
+  height: 500px;
+  justify-content: center;
+}
+
+.sing_in {
+  display: flex;
+  border: 3px solid #C562FF;
+  border-radius: 5px;
+  align-items: center;
+  flex-basis: 40%;
+  background-color: #F0CCF9;
+  flex-direction: column;
+}
+
+.register_form_container {
+  display: flex;
+  margin-top: 50px;
+  padding-bottom: 150px;
+  height: 600px;
+  justify-content: center;
+}
+
+.register_account {
+  display: flex;
+  border: 3px solid #C562FF;
+  border-radius: 5px;
+  align-items: center;
+  flex-basis: 40%;
+  background-color: #F0CCF9;
+  flex-direction: column;
+}
+
+#sign_in_login, #sign_in_password {
+  width: 60%;
+  height: 35px;
+  border: 2px solid black;
+  margin-bottom: 35px;
+  border-radius: 5px;
+}
+
+ #register_password, #register_login, #register_fio,
+ #register_email, #register_confirm_password {
+   width: 60%;
+   height: 35px;
+   border: 2px solid black;
+   margin-bottom: 35px;
+   border-radius: 5px;
+ }
+
+
+#sign_in {
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: #fff;
+  cursor: pointer;
+}
+
+#register {
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: #fff;
+  cursor: pointer;
+}
+
+.register_title {
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 50px;
+  margin-top: 10px;
+}
+
+.sign_in_title {
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 50px;
+  margin-top: 10px;
+}
+
+/*----------------------*/
+
+.mattress-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 700px;
+  height: 800px;
+  margin: 20px auto;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.mattress-list {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin: 20px auto;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-y: auto;
+}
+
+#loading-icon {
+  font-size: 10px;
+  margin: 2px 2px;
+}
+
+.mattress_cart_delete_button {
+  width: 50%;
+}
+
+.mattress_cart_delete_button, .mattress_add_to_cart_button, .show_info_button {
+  border: 1px solid #D997FF;
+  background-color: #EBB4FE;
+  font-size: 12px;
+  border-radius: 2px;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+
+.mattress-item {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.mattress-item img {
+  width: 100%;
+  height: 50%;
+  border-radius: 5px;
+}
+
+h3 {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+p {
+  font-size: 14px;
+}
+.total-cost {
+  border-color: #A100FA;
+  background-color: #EBB4FE;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.profile_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 700px;
+  margin-bottom: 30px;
+}
+
+.profile_section {
+  display: flex;
+  border: 2px solid #A100FA;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  height: 70%;
+  width: 35%;
+}
+
+.user_name_profile_section {
+  height: 20%;
+}
+
+.user_profile_info_container {
+  height: 60%;
+}
+
+.user_profile_show_orders {
+  height: 20%;
+}
+.user_name_profile_section {
+  text-align: center;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  background-color: #D997FF;
+  width: 100%;
+}
+
+.user_profile_info_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.user_profile_fio_section, .user_profile_email_section, .user_profile_role_section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  flex-basis: 33%;
+  width: 60%;
+}
+
+.user_profile_fio, .user_profile_email, .user_profile_role {
+  font-weight: bold;
+  text-align: center;
+}
+
+.user_profile_show_orders {
+  text-decoration: none;
+  color: #C562FF;
+  align-self: center;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.profile_section_dividing_line {
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+
+.orders_list, .order_item, .order_mattress_item{
+  display: flex;
+  flex-direction: column;
+}
+
+.order_date_section, .order_address_section, .order_cost_section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 3.5%;
+  width: 35%;
+}
+
+.order_mattresses_items {
+  height: 3.5%;
+  font-weight: bold;
+  width: 25%;
+}
+
+.order_item {
+  padding: 6px;
+  border: 1px solid #ccc;;
+  border-radius: 3px;
+  margin: 3px;
+}
+
+.orders_container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 750px;
+}
+
+.orders_list {
+  border: 3px solid #C562FF;
+  border-radius: 3px;
+  width: 60%;
+  overflow-y: auto;
+  height: 85%;
+}
+
+
+.order_mattress_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 2px;
+  height: 88%;
+}
+
+.order_mattress_item {
+  border: 1px solid #999999;
+  border-radius: 5px;
+  margin: 2px;
+  padding: 2px;
+}
+
+.form_order_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 35%;
+}
+
+#create_order_form {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  height: 100%;
+  width: 50%;
+  margin-bottom: 30px;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 3px;
+}
+
+.create_order_label, .order_submit_button {
+  height: 33%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#order_address {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 97%;
+  height: 33%;
+  font-size: 20px;
+}
+
+
+
+.create_order_label {
+  font-size: 24px;
+  background-color: #D997FF;
+}
+
+.order_submit_button {
+  font-size: 15px;
+}
+
+.cart_main_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.orders_header {
+  font-size: 33px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15%;
+}
+
+.date_header, .order_address, .order_cost {
+  font-weight: bold;
+}
+
+#user_profile_icon{
+  font-size: 45px;
+  margin-bottom: 30px;
+  color: black;
+}
+
+.mattress_info_error_message {
+  font-size: 40px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+#sign_in_load_icon, #register_load_icon {
+  margin-top: 20px;
+  color: green;
+  font-size: 35px;
+}
+
+.orders_amount_header {
+  font-size: 45px;
+}
+
+.statistics_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  margin-bottom: 300px;
+  max-height: 600px;
+  margin-top: 30px;
+}
+
+.statistics_section {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 80%;
+  border: 2px solid black;
+  border-radius: 3px;
+}
+
+.statistics_container_header {
+  font-size: 35px;
+  color: #C562FF;
+  margin-bottom: 30px;
+}
+
+.statistics_container_columns_names {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #EBB4FE;
+  align-items: center;
+  height: 50px;
+}
+
+.statistics_container_page, .statistics_container_pages_count {
+  color: black;
+  font-size: 25px;
+}
+
+.statistics_container_page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+
+.statistics_container_pages_count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+
+.statistics_section_dividing_line {
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.statistics_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statistics-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 17px;
+  width: 100%;
+}
+
+.statistics_item_url {
+  color: #C562FF;
+}
+
+.statistics, .statistics_item_count {
+  color: black;
+}
+
+.statistics_item_count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+
+.statistics-item_page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 3px;
+  padding-right: 3px;
+  width: 60%;
+}
+
+.statistics_vertical_line {
+  width: 1px;
+  height: 100%;
+  background-color: black;
+}
+
+.statistics_vertical_line::after {
+  content: '';
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid black;
+}
+
+.statistics_empty_page {
+  font-size: 40px;
+  color: black;
+}
+
+

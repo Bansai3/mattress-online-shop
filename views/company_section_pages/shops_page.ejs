@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Online mattress store">
+    <mate name="keywords" content="HTML">
+    <meta name="author" content="Vadim Fedotov">
+    <link href="/style_sheets/body_style.css" rel="stylesheet">
+    <link href="/style_sheets/head_first_line_style.css" rel="stylesheet">
+    <link href="/style_sheets/head_second_line_style.css" rel="stylesheet">
+    <link href="/style_sheets/footer_style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <%- include('../templates/page_load_time_script.ejs') %>
+      <%- include('../templates/notifications.ejs') %>
+    <title>Интернет магазин матрасов</title>
+  </head>
+  <body>
+  <header>
+    <%- include('../templates/header_first_line.ejs') %>
+  </header>
+      <main>
+        <script src="/js/shops_page.js"></script>
+        <div class="body_footer_line"></div>
+      </main>
+  <%- include('../templates/footer.ejs') %>
+  </body>
+</html>

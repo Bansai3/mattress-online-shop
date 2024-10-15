@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Online mattress store">
+    <mate name="keywords" content="HTML">
+        <meta name="author" content="Vadim Fedotov">
+        <link href="/style_sheets/body_style.css" rel="stylesheet">
+        <link href="/style_sheets/head_first_line_style.css" rel="stylesheet">
+        <link href="/style_sheets/head_second_line_style.css" rel="stylesheet">
+        <link href="/style_sheets/footer_style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <%- include('../templates/page_load_time_script.ejs') %>
+        <%- include('../templates/notifications.ejs') %>
+        <title>Интернет магазин матрасов</title>
+</head>
+<body>
+<header>
+    <%- include('../templates/header_first_line.ejs') %>
+</header>
+<main>
+    <div class='cart_main_container'>
+    <div class="mattress-container">
+    <div class="mattress-list">
+        <% let totalCost = 0; %>
+    <% mattresses.forEach(mattress => { %>
+                <div class="mattress-item">
+                    <img src="/<%= mattress.image_link %>" alt="<%= mattress.name %>">
+                    <h3><%= mattress.name %></h3>
+                    <p>Тип: <%= mattress.type %></p>
+                    <p>Рекомендуемый: <%= mattress.recommended %></p>
+                    <p>Цена: <%= mattress.cost %></p>
+                    <p>Дата производства: <%= mattress.manufacture_date.toDateString() %></p>
+                    <% totalCost += Number(mattress.cost); %>
+                    <button class='mattress_cart_delete_button' onclick='deleteMattressFromCart(<%= mattress.id %>)'>Удалить матрасс</button>
+                    <div id="loading-icon_<%= mattress.id %>" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i> Loading...
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+        <div class="total-cost">
+            <h4>Итого: <%= totalCost %> рублей</h4>
+        </div>
+    </div>
+    <div class='form_order_container'>
+    <form id="create_order_form">
+        <label class='create_order_label' for="address">Создание заказа</label>
+
+        <div class='profile_section_dividing_line'></div>
+
+        <input type="text" id="order_address" name="address" placeholder="Введите ваш адрес">
+
+        <div class='profile_section_dividing_line'></div>
+
+        <input class='order_submit_button' type="submit" value="создать">
+        <div id="loading_icon_for_order_creation" style="display: none;">
+            <i class="fas fa-spinner fa-spin"></i> Loading...
+        </div>
+    </form>
+    </div>
+    </div>
+    <script>
+      document.getElementById('create_order_form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        let addressValue = String(document.getElementById('order_address').value);
+        let user_id_value = <%= user_id %>;
+        const data = {
+          address: addressValue,
+          date: getCurrentDate()
+        };
+        const loadingIcon = document.getElementById(`loading_icon_for_order_creation`);
+        loadingIcon.style.display = 'block';
+        fetch(`/order${user_id_value}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data),
+        }).then(response => {
+          if (!response.ok) {
+            response.text().then(errorMessage => {
+              const json_obj = JSON.parse(errorMessage);
+              alert(json_obj.message);
+            });
+          }
+          loadingIcon.style.display = 'none';
+        });
+      });
+
+      function getCurrentDate() {
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        const month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
+        const day = ('0' + currentDate.getDate()).slice(-2);
+        return String(year + '-' + month + '-' + day);
+      }
+
+      function deleteMattressFromCart(mattress_id_value) {
+        let formData = new FormData();
+        formData.append('cart_id', <%= cart_id %>);
+        formData.append('mattress_id', mattress_id_value);
+        const cart_id = '<%= cart_id %>';
+        const loadingIcon = document.getElementById(`loading-icon_${mattress_id_value}`);
+        loadingIcon.style.display = 'block';
+        fetch(`/cart${cart_id}/delete${mattress_id_value}`, {
+          method: 'DELETE',
+        }).then(response => {
+          if (response.ok) {
+            window.location.href = '/cart/cart_page'
+          } else {
+            response.text().then(errorMessage => {
+              const json_obj = JSON.parse(errorMessage);
+              alert(json_obj.message);
+            });
+          }
+          loadingIcon.style.display = 'none';
+        });
+      }
+    </script>
+    <div class="body_footer_line"></div>
+</main>
+<%- include('../templates/footer.ejs') %>
+</body>
+</html>

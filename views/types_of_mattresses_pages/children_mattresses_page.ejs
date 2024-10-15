@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Online mattress store">
+    <mate name="keywords" content="HTML">
+    <meta name="author" content="Vadim Fedotov">
+    <link href="/style_sheets/body_style.css" rel="stylesheet">
+    <link href="/style_sheets/head_first_line_style.css" rel="stylesheet">
+    <link href="/style_sheets/head_second_line_style.css" rel="stylesheet">
+    <link href="/style_sheets/footer_style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <%- include('../templates/page_load_time_script.ejs') %>
+      <%- include('../templates/notifications.ejs') %>
+    <title>Интернет магазин матрасов</title>
+  </head>
+  <body>
+  <header>
+    <%- include('../templates/header_first_line.ejs') %>
+    <%- include('../templates/header_second_line.ejs') %>
+  </header>
+      <main>
+        <%- include('../templates/nav.ejs') %>
+        <script src="../js/change_button_state.js"></script>
+        <div class="gallery">
+          <figure>
+            <img src="/types_of_mattresses_images/children_mattresses/Children_m_1.jpg" alt="Children_m_1">
+            <figcaption>матрасс "Детский матрас №1"</figcaption>
+            <button class="show_info_button" onclick='get_mattress_info("Children_m_1")'>Показать информацию</button>
+          </figure>
+          <figure>
+            <img src="/types_of_mattresses_images/children_mattresses/Children_m_2.jpg" alt="Children_m_2">
+            <figcaption>матрасс "Детский матрас №2"</figcaption>
+            <button class="show_info_button" onclick='get_mattress_info("Children_m_2")'>Показать информацию</button>
+          </figure>
+          <figure>
+            <img src="/types_of_mattresses_images/children_mattresses/Children_m_3.jpg" alt="Children_m_3">
+            <figcaption>матрасс "Детский матрас №3"</figcaption>
+            <button class="show_info_button" onclick='get_mattress_info("Children_m_3")'>Показать информацию</button>
+          </figure>
+          <figure>
+            <img src="/types_of_mattresses_images/children_mattresses/Children_m_4.jpg" alt="Children_m_4">
+            <figcaption>матрасс "Детский матрас №4"</figcaption>
+            <button class="show_info_button" onclick='get_mattress_info("Children_m_4")'>Показать информацию</button>
+          </figure>
+          <figure>
+            <img src="/types_of_mattresses_images/children_mattresses/Children_m_5.jpg" alt="Children_m_5">
+            <figcaption>матрасс "Детский матрас №5"</figcaption>
+            <button class="show_info_button" onclick='get_mattress_info("Children_m_5")'>Показать информацию</button>
+          </figure>
+          <figure>
+            <img src="/types_of_mattresses_images/children_mattresses/Children_m_6.jpg" alt="Children_m_6">
+            <figcaption>матрасс "Детский матрас №6"</figcaption>
+            <button class="show_info_button" onclick='get_mattress_info("Children_m_6")'>Показать информацию</button>
+          </figure>
+        </div>
+        <script src="../js/mattress_info.js"></script>
+      <div class="body_footer_line"></div>
+      </main>
+  <%- include('../templates/footer.ejs') %>
+  </body>
+</html>

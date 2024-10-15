@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Online mattress store">
+    <mate name="keywords" content="HTML">
+        <meta name="author" content="Vadim Fedotov">
+        <link href="/style_sheets/body_style.css" rel="stylesheet">
+        <link href="/style_sheets/head_first_line_style.css" rel="stylesheet">
+        <link href="/style_sheets/head_second_line_style.css" rel="stylesheet">
+        <link href="/style_sheets/footer_style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <link href="/style_sheets/form.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script defer src="/js/handle_form_submit.js"></script>
+        <%- include('../templates/page_load_time_script.ejs') %>
+        <%- include('../templates/notifications.ejs') %>
+        <title>Интернет магазин матрасов</title>
+</head>
+<body>
+<header>
+    <%- include('../templates/header_first_line.ejs') %>
+</header>
+<main>
+    <div class='profile_container'>
+        <i id='user_profile_icon' class="fas fa-user"></i>
+        <div class='profile_section'>
+        <div class='user_name_profile_section'><%= user_login %></div>
+        <div class='profile_section_dividing_line'></div>
+        <div class='user_profile_info_container'>
+            <div class='user_profile_fio_section'>
+                <div class='user_profile_fio'>FIO</div>
+                <div class='user_profile_fio_value'><%= user_fio %></div>
+            </div>
+            <div class='profile_section_dividing_line'></div>
+            <div class='user_profile_email_section'>
+                <div class='user_profile_email'>Email</div>
+                <div class='user_profile_email_value'><%= user_email %></div>
+            </div>
+            <div class='profile_section_dividing_line'></div>
+            <div class='user_profile_role_section'>
+                <div class='user_profile_role'>Role</div>
+                <div class='user_profile_role_value'><%= user_role %></div>
+            </div>
+        </div>
+            <div class='profile_section_dividing_line'></div>
+        <a href="/orders/orders_page" class='user_profile_show_orders'>Orders</a>
+        </div>
+    </div>
+    <div class="body_footer_line"></div>
+</main>
+<%- include('../templates/footer.ejs') %>
+</body>
+</html>

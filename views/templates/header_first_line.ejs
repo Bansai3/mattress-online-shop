@@ -1,0 +1,50 @@
+<div class="first_line">
+    <div class="company_section">
+        <a href="/company_section_pages/about_factory_page"
+           class="first_line_navigation_button" id="factory">О фабрике</a>
+        <a href="/company_section_pages/info_for_customers_page"
+           class="first_line_navigation_button" id="customers">Покупателям</a>
+        <a href="/company_section_pages/info_for_partners_page"
+           class="first_line_navigation_button" id="partners">Партнерам</a>
+        <a href="/company_section_pages/shops_page"
+           class="first_line_navigation_button" id="shops">Магазины</a>
+    </div>
+    <div class="phone_section">
+        <div class="phone">
+            <i class="fas fa-phone"></i>
+            <div class="phone_number">666-66-66</div>
+        </div>
+        <div class="order_call">Заказать звонок</div>
+    </div>
+        <% if(is_user_authorized === false) { %>
+        <div class="register_section">
+            <div class="entry_section">
+                <i class="fas fa-user"></i>
+                <a href="/registration/sign_in_page" class="sign_in_label">Войти</a>
+            </div>
+            <a href="/registration/registration_page" class="register_label">Зарегистрироваться</a>
+        </div>
+        <% } else { %>
+    <div class="logout_section">
+        <a class="user_login" href='/profile/profile_page'><%= user_login %></a>
+        <button class="logout" onclick='sendLogoutRequest();'>Выйти</button>
+        <a href='/cart/cart_page' class='cart'> Корзина </a>
+    </div>
+        <% }%>
+    <script>
+      function sendLogoutRequest() {
+        formData = new FormData();
+        fetch(`/auth/logout${<%= user_id %>}`, {
+          method: 'PUT',
+          body: formData
+        }).then(response => {
+          if (response.ok) {
+            window.location.href = '/';
+          } else {
+            alert('Ошибка logout');
+          }
+        });
+      }
+    </script>
+</div>
+<div class="head_body_line"></div>

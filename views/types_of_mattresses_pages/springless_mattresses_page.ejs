@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Online mattress store">
+    <mate name="keywords" content="HTML">
+    <meta name="author" content="Vadim Fedotov">
+    <link href="/style_sheets/body_style.css" rel="stylesheet">
+    <link href="/style_sheets/head_first_line_style.css" rel="stylesheet">
+    <link href="/style_sheets/head_second_line_style.css" rel="stylesheet">
+    <link href="/style_sheets/footer_style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <%- include('../templates/page_load_time_script.ejs') %>
+      <%- include('../templates/notifications.ejs') %>
+    <title>Интернет магазин матрасов</title>
+  </head>
+  <body>
+  <header>
+    <%- include('../templates/header_first_line.ejs') %>
+    <%- include('../templates/header_second_line.ejs') %>
+  </header>
+      <main>
+        <%- include('../templates/nav.ejs') %>
+        <script src="../js/change_button_state.js"></script>
+        <div class="gallery">
+          <figure>
+            <img src="/types_of_mattresses_images/springless/Flex_15.jpg" alt="Flex_15">
+            <figcaption>матрасс "Флекс 15"</figcaption>
+            <button class="show_info_button" onclick='get_mattress_info("Flex_15")'>Показать информацию</button>
+          </figure>
+          <figure>
+            <img src="/types_of_mattresses_images/springless/Flex_20.jpg" alt="Flex_20">
+            <figcaption>матрасс "Флекс 20"</figcaption>
+            <button class="show_info_button" onclick='get_mattress_info("Flex_20")'>Показать информацию</button>
+          </figure>
+          <figure>
+            <img src="/types_of_mattresses_images/springless/Kantri_10.jpg" alt="Kantri_10">
+            <figcaption>матрасс "Кантри 10"</figcaption>
+            <button class="show_info_button" onclick='get_mattress_info("Kantri_10")'>Показать информацию</button>
+          </figure>
+          <figure>
+            <img src="/types_of_mattresses_images/springless/Kantri_20.jpg" alt="Kantri_20">
+            <figcaption>матрасс "Кантри 20"</figcaption>
+            <button class="show_info_button" onclick='get_mattress_info("Kantri_20")'>Показать информацию</button>
+          </figure>
+          <figure>
+            <img src="/types_of_mattresses_images/springless/Kantri_5.jpg" alt="Kantri_5">
+            <figcaption>матрасс "Кантри 5"</figcaption>
+            <button class="show_info_button" onclick='get_mattress_info("Kantri_5")'>Показать информацию</button>
+          </figure>
+          <figure>
+            <img src="/types_of_mattresses_images/springless/Kantri_15.jpg" alt="Kantri_15">
+            <figcaption>матрасс "Кантри 15"</figcaption>
+            <button class="show_info_button" onclick='get_mattress_info("Kantri_15")'>Показать информацию</button>
+          </figure>
+        </div>
+        <script src="../js/mattress_info.js"></script>
+      <div class="body_footer_line"></div>
+      </main>
+  <%- include('../templates/footer.ejs') %>
+  </body>
+</html>

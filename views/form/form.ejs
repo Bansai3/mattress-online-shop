@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Online mattress store">
+    <mate name="keywords" content="HTML">
+    <meta name="author" content="Vadim Fedotov">
+    <link href="/style_sheets/body_style.css" rel="stylesheet">
+    <link href="/style_sheets/head_first_line_style.css" rel="stylesheet">
+    <link href="/style_sheets/head_second_line_style.css" rel="stylesheet">
+    <link href="/style_sheets/footer_style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="/style_sheets/form.css" rel="stylesheet">
+    <script defer src="/js/handle_form_submit.js"></script>
+      <%- include('../templates/page_load_time_script.ejs') %>
+        <%- include('../templates/notifications.ejs') %>
+    <title>Интернет магазин матрасов</title>
+  </head>
+  <body>
+  <header>
+      <%- include('../templates/header_first_line.ejs') %>
+  </header>
+      <main>
+        <div class="task_container">
+        <div class="task_form">
+          <div class="task_input_container">
+            <form id="todoForm" class="task_input" onsubmit="handleFormSubmit(event)">
+              <img src="/form_images/bars.svg" alt="icon">
+              <input type="text" placeholder="Введите задание" />
+            </form>
+        </div>
+        <div class="controls">
+            <div class="states">
+                <span class="active" id="all">Все</span>
+                <span id="pending">В обработке</span>
+                <span id="completed">Обработанные</span>
+            </div>
+            <div class="button_container">
+            <button class="clear_button">Очистить</button>
+            </div>
+        </div>
+        <div class="divided_line"></div>
+        <div id="tasks" class="task_box"></div>
+    </div>
+    </div>
+          <div class="body_footer_line"></div>
+      </main>
+  <%- include('../templates/footer.ejs') %>
+  </body>
+</html>
